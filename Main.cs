@@ -12,7 +12,7 @@ namespace KitchenPermanentVisits
     {
         public const string MOD_GUID = $"IcedMilo.PlateUp.{MOD_NAME}";
         public const string MOD_NAME = "Permanent Visits";
-        public const string MOD_VERSION = "0.1.0";
+        public const string MOD_VERSION = "0.1.1";
 
         internal const string RESET_VISITS_ID = "resetVisits";
 
@@ -33,7 +33,7 @@ namespace KitchenPermanentVisits
                 .AddLabel("Reset Visits")
                 .AddOption<bool>(
                     RESET_VISITS_ID,
-                    true,
+                    false,
                     new bool[] { false, true },
                     new string[] { "Never", "When Reentering Restaurant" })
                 .AddSpacer()
