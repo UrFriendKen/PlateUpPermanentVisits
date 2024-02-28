@@ -1,17 +1,21 @@
 ﻿using HarmonyLib;
-using Kitchen.ChefConnector.Commands;
+using Kitchen;
+using static Kitchen.TwitchNameList;
 
 namespace KitchenPermanentVisits.Patches
 {
     [HarmonyPatch]
     static class TwitchNameList_Patch2
     {
-        [HarmonyPatch(typeof(Visit), "SendMessages")]
+        [HarmonyPatch(typeof(TwitchNameList), "SetData")]
         [HarmonyPrefix]
-        static void ClearData_Prefix(ref bool ___RequestWipe)
+        static void ClearData_Prefix(ref TwitchCustomerData data)
         {
-            if (___RequestWipe)
-                Main.LogError("Requested Wipe");
+            if (!PatchHelper.StaticHas<STwitchOrderingActive>() && data.OrderIndex > 0)
+            {
+                data.OrderIndex = 0;
+                Main.LogError("Ordering disabled! Set Order Index to 0.");
+            }
         }
     }
 }

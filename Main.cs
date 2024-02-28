@@ -12,7 +12,7 @@ namespace KitchenPermanentVisits
     {
         public const string MOD_GUID = $"IcedMilo.PlateUp.{MOD_NAME}";
         public const string MOD_NAME = "Permanent Visits";
-        public const string MOD_VERSION = "0.1.1";
+        public const string MOD_VERSION = "0.1.2";
 
         internal const string RESET_VISITS_ID = "resetVisits";
 
